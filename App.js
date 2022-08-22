@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, TextInput, View, Button, Alert  } from "react-native";
+import { StyleSheet, Text, TextInput, View, Button, Alert } from "react-native";
 import { useState } from "react";
 
 export default function App() {
@@ -11,11 +11,12 @@ export default function App() {
     setGoalEntry(enteredText);
   }
   function addGoalHandler() {
-    if(goalEntry!== "")
-    {setGoalList((upadtelist) => [...goalList, goalEntry])};
-    // else{alert("Can't enter an empty item")}
+    if (goalEntry !== "") {
+      setGoalList((upadtelist) => [...goalList, goalEntry]);
+    } else {
+      Alert.alert("Can't enter an empty item");
     }
-  
+  }
 
   return (
     <View style={styles.appContainer}>
@@ -31,7 +32,7 @@ export default function App() {
         {goalList.map((goal, index) => {
           return (
             <View style={styles.goalItem} key={index + 1}>
-              <Text style={styles.goalText}>{goal}</Te>
+              <Text style={styles.goalText}>{goal}</Text>
             </View>
           );
         })}
