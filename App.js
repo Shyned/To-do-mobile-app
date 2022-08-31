@@ -17,7 +17,9 @@ export default function App() {
       Alert.alert("Can't enter an empty item");
     }
   }
-
+  function clearList() {
+    setGoalList([]);
+  }
   return (
     <View style={styles.appContainer}>
       <View style={styles.inputCotainer}>
@@ -32,11 +34,13 @@ export default function App() {
         {goalList.map((goal, index) => {
           return (
             <View style={styles.goalItem} key={index + 1}>
-              <Text style={styles.goalText}>{goal}</Text>
+              <Text style={styles.goalText}>{goal} </Text>
+              <Button title="X" />
             </View>
           );
         })}
       </View>
+      <Button title="clear" onPress={clearList}></Button>
     </View>
   );
 }
